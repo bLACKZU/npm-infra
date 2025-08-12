@@ -40,7 +40,7 @@ resource "random_id" "server" {
 }
 
 resource "aws_key_pair" "staging_key" {
-  key_name   = "staging-key"
+  key_name   = "staging-key-${random_id.server.hex}"
   public_key = var.staging_public_key
 
   tags = {
